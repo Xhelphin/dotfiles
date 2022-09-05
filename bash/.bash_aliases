@@ -10,7 +10,7 @@ alias publicip='curl https://api.ipify.org; echo'
 alias mypc='neofetch'
 
 # bash aliases
-alias profile='nano ~./bashrc; source ~/.bashrc'
+alias profile='nano ~/.bashrc; source ~/.bashrc'
 alias refresh='source ~./bashrc'
 
 # apt aliases
