@@ -11,7 +11,7 @@ alias mypc='neofetch'
 
 # bash aliases
 alias profile='nano ~/.bashrc; source ~/.bashrc'
-alias refresh='source ~./bashrc'
+alias refresh='source ~/.bashrc'
 
 # apt aliases
 alias update='sudo apt-get update'
