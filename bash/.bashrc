@@ -112,3 +112,43 @@ if ! shopt -oq posix; then
 fi
 
 PS1="\n\033[1;32m\u@\h \033[1;36m[\033[1;37m\t\033[1;36m]\n\033[1;34m\w\033[0m $ "
+
+# Make nano the default editor
+export EDITOR='nano'
+export VISUAL='nano'
+
+# Add directories to $PATH
+if [ -d "$HOME/.bin" ] ;
+    then PATH="$HOME/.bin:$PATH"
+fi
+if [ -d "$HOME/.local/.bin" ] ;
+    then PATH="$HOME/.local/.bin:$PATH"
+fi
+
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+# # From https://gitlab.com/thelinuxcast/my-dots/-/blob/master/bash/.bashrc
+ex ()
+{
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)  tar xjf $1      ;;
+            *.tar.gz)   tar xzf $1      ;;
+            *.bz2)      bunzip2 $1      ;;
+            *.rar)      unrar x $1      ;;
+            *.gz)       gunzip $1       ;;
+            *.tar)      tar xf $1       ;;
+            *.tbz2)     tar xjf $1      ;;
+            *.tgz)      tar xzf $1      ;;
+            *.zip)      unzip $1        ;;
+            *.Z)        uncompress $1   ;;
+            *.7z)       7z x $1         ;;
+            *.deb)      ar x $1         ;;
+            *.tar.xz)   tar xf $1       ;;
+            *.tar.zst)  tar xf $1       ;;
+            *)          echo "'$1 cannot be extracted via ex()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
